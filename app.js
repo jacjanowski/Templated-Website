@@ -1,6 +1,7 @@
 var express    = require("express"),
 	bodyParser = require("body-parser");
 
+
 var PORT = process.env.PORT || 3000;
 var app = express();
 	
@@ -21,13 +22,19 @@ app.set("view engine","ejs");
 app.use(express.static(__dirname + '/public/'));
 
 app.get("/", function(req,res){
-	res.render("header");
+	res.render("header")
 });
 
-app.get("/contact", function(req,res) {
-    res.render("contact");
-});
 
+
+// app.get("/contact", function(req,res) {
+// 	res.render("contact");
+// });
+
+app.post("/add_photo",function(req,res){
+	console.log(req.body);
+	res.render("contact");
+});
 
 
 app.listen(PORT,function(){
