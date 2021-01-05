@@ -1,3 +1,18 @@
-h1 {
-    font-family: 'Darker Grotesque', sans-serif;
+.header {
+    font-family: 'Cutive Mono', monospace;
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 1em;
+    text-align: center;
+    border-bottom: 1px solid rgba(114, 114, 114, 0.295);
+    background: #fff8e3;
+    letter-spacing: 0em;
+}
+
+html, button, input, select, textarea,
+.pure-g [class *= "pure-u"] {
+    background-color: #fff8e3;
+    font-family: 'Nixie One', cursive;
+
+
 }
