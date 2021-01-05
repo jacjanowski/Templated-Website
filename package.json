@@ -1,0 +1,28 @@
+{
+  "name": "playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.10",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jacjanowski/Templated-Website.git"
+  },
+  "author": "jacob janowski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jacjanowski/Templated-Website/issues"
+  },
+  "homepage": "https://github.com/jacjanowski/Templated-Website#readme"
+}
