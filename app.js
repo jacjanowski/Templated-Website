@@ -22,7 +22,11 @@ app.use(express.static(__dirname + '/public/'));
 
 
 app.get("/", function(req,res){
-	res.render("landing");
+	res.render("header");
+});
+
+app.get("/contact", function(req,res) {
+    res.render("contact");
 });
 
 
