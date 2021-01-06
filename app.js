@@ -27,14 +27,19 @@ app.get("/", function(req,res){
 
 
 
-// app.get("/contact", function(req,res) {
-// 	res.render("contact");
+
+app.post("/photos",function(req,res){
+	var photoThatIChose = req.body.photo_name;
+	console.log(req.body.photo_name);
+	res.render("header", {photo_name: photoThatIChose});
+	//res.render("contact",{photo_name: photoThatIChose});
+});
+
+// app.get("/contact/:photo_name" , function(req,res){
+// 	var photo_name = req.body.photo_name;
+// 	res.render("header", {photo_name: photo_name});
 // });
 
-app.post("/add_photo",function(req,res){
-	console.log(req.body);
-	res.render("contact");
-});
 
 
 app.listen(PORT,function(){

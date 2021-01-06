@@ -1,7 +1,5 @@
 <%- include("partials/headerHTML") %>
 
-
-
     
     <div class="header">
         <h1>Wallpaper JSON Designer</h1>
@@ -9,12 +7,14 @@
     </div>
 
     <div class="pure-g">
-        <form action="/add_photo" method="POST" style="margin: auto; padding: 2em; display: flex;" class="pure-form">
+        <form action="/photos" method="POST" style="margin: auto; padding: 2em; display: flex;" class="pure-form">
                 <input type="text" name="photo_name" class="pure-input-1" placeholder="Search for a word" />
                 <button>
                     <i style="left: -31px;" class="icono-search"></i>
                 </button>
         </form>
 
+        
     </div>
+    <p>your word that you chose is: <%= photo_name%></p>
     <%- include("partials/footer") %>
