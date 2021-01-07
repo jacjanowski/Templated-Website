@@ -1,12 +1,13 @@
 var express    = require("express"),
-bodyParser = require("body-parser");
+	bodyParser = require("body-parser"),
+	request	   = require("request");
 
 
 var searchResults = [];
 
 var PORT = process.env.PORT || 3000;
 var app = express();
-	
+
 // mongoose.connect("mongodb://localhost/portfolio", {
 //     useUnifiedTopology: true,
 //     useNewUrlParser: true,
@@ -27,15 +28,26 @@ app.get("/", function(req,res){
 	res.render("header")
 });
 
-app.post("/search",function(req,res){
+app.post("/photos",function(req,res){
 	var photo_name = req.body.photo_name;
+
 	console.log(req.body.photo_name);
 	searchResults.push(photo_name);
-	res.redirect("/photos");
+	res.render("show", {photo_name: photo_name})
 	
 });
 
-app.get("/photos", function(req,res){
+app.get("/photos/random", function(req,res){
+	var photo_name = req.body.photo_name;
+	request("https://api.unsplash.com/photos/?client_id=eldAH6lEOD3YrspfMW8Lo-6lhy5QUB6stBxTP7SJxcg", function(error, response, body){
+		if(!error && response.statusCode == 200) {
+			console.log("inside");
+			var data = JSON.parse(body);
+			console.log(data);
+
+		}
+	
+	})
 	res.render("show", {photo_name: searchResults});
 
 });
