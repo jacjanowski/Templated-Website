@@ -1,6 +1,8 @@
 var express    = require("express"),
-	bodyParser = require("body-parser");
+bodyParser = require("body-parser");
 
+
+var searchResults = [];
 
 var PORT = process.env.PORT || 3000;
 var app = express();
@@ -25,20 +27,20 @@ app.get("/", function(req,res){
 	res.render("header")
 });
 
-
-
-
-app.post("/photos",function(req,res){
-	var photoThatIChose = req.body.photo_name;
+app.post("/search",function(req,res){
+	var photo_name = req.body.photo_name;
 	console.log(req.body.photo_name);
-	res.render("header", {photo_name: photoThatIChose});
-	//res.render("contact",{photo_name: photoThatIChose});
+	searchResults.push(photo_name);
+	res.redirect("/photos");
+	
 });
 
-// app.get("/contact/:photo_name" , function(req,res){
-// 	var photo_name = req.body.photo_name;
-// 	res.render("header", {photo_name: photo_name});
-// });
+app.get("/photos", function(req,res){
+	res.render("show", {photo_name: searchResults});
+
+});
+
+
 
 
 
