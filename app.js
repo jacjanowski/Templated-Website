@@ -4,7 +4,7 @@ var express    = require("express"),
 
 
 var searchResults = [];
-var TOKEN = "https://api.unsplash.com/photos/random/?client_id=eldAH6lEOD3YrspfMW8Lo-6lhy5QUB6stBxTP7SJxcg";
+var TOKEN = "https://api.unsplash.com/search/photos?page=1&query=office&client_id=eldAH6lEOD3YrspfMW8Lo-6lhy5QUB6stBxTP7SJxcg";
 var PORT = process.env.PORT || 3000;
 var app = express();
 
