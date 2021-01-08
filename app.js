@@ -4,7 +4,7 @@ var express    = require("express"),
 
 
 var searchResults = [];
-
+var TOKEN = "https://api.unsplash.com/photos/random/?client_id=eldAH6lEOD3YrspfMW8Lo-6lhy5QUB6stBxTP7SJxcg";
 var PORT = process.env.PORT || 3000;
 var app = express();
 
@@ -37,13 +37,12 @@ app.post("/photos",function(req,res){
 	
 });
 
-app.get("/photos/random", function(req,res){
+app.get("/photos", function(req,res){
 	var photo_name = req.body.photo_name;
-	request("https://api.unsplash.com/photos/?client_id=eldAH6lEOD3YrspfMW8Lo-6lhy5QUB6stBxTP7SJxcg", function(error, response, body){
+	request(TOKEN, function(error, response, body){
 		if(!error && response.statusCode == 200) {
-			console.log("inside");
 			var data = JSON.parse(body);
-			console.log(data);
+			console.log(data.urls.raw);
 
 		}
 	
