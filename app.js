@@ -8,8 +8,9 @@ var TOKEN = "https://api.unsplash.com/search/photos?page=1&query=office&count=1&
 var PORT = process.env.PORT || 3000;
 var app = express();
 
-
-// mongoose.connect("mongodb://localhost/portfolio", {
+var CLIENT_ID = "&client_id=eldAH6lEOD3YrspfMW8Lo-6lhy5QUB6stBxTP7SJxcg",
+	URL       = "https://api.unsplash.com/";
+	// mongoose.connect("mongodb://localhost/portfolio", {
 //     useUnifiedTopology: true,
 //     useNewUrlParser: true,
 //     useCreateIndex: true
@@ -36,7 +37,8 @@ app.get("/", function(req,res){
 // });
 
 app.post("/photos", function(req,res){
-	var TOKEN = "https://api.unsplash.com/photos/random?client_id=eldAH6lEOD3YrspfMW8Lo-6lhy5QUB6stBxTP7SJxcg";
+	var photo_name = req.body.photo_name;
+	var TOKEN = URL + "/search/photos?query=" + photo_name + CLIENT_ID;
 	request(TOKEN, function(error, response, body){
 		if(!error && response.statusCode == 200) {
 			var data = JSON.parse(body);
@@ -74,11 +76,12 @@ app.get("/photos/random", function(req,res){
 					created_at: data.created_at,
 					image: data.urls.raw,
 					description: data.alt_description,
-					bio: data.user.bio 
+					bio: data.user.bio, 
+					likes: data.likes
 					
 				}
 			];
-			res.render("random", {picture: PictureObject});
+			res.render("show", {picture: PictureObject});
 		}
 
 	});
