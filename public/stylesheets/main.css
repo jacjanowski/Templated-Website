@@ -5,14 +5,35 @@
     padding: 1em;
     text-align: center;
     border-bottom: 1px solid rgba(114, 114, 114, 0.295);
-    background: #fff8e3;
+    background: rgb(179, 220, 255);
     letter-spacing: 0em;
 }
 
-html, button, input, select, textarea,
+html,  input, select, textarea,
 .pure-g [class *= "pure-u"] {
-    background-color: #fff8e3;
+    background: rgb(179, 220, 255);
     font-family: 'Nixie One', cursive;
 
 
+}
+
+.pure-form {
+    margin: auto;
+    padding: 2em;
+    text-align: center;
+    display: block;
+}
+.pure-form button {
+    border-radius: 7px;
+    background-color: deepskyblue;
+    
+}
+
+
+.pure-form > * {
+    text-align: center;
+    margin: 1;
+    font-family: 'Cutive Mono', monospace;
+    letter-spacing: 0em;
+    
 }
