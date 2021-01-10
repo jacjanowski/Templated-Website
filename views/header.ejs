@@ -6,12 +6,12 @@
         <h3>With the use of <a target="_blank" href="https://unsplash.com/" >Unsplash API</a></h3>
     </div>
 
-    <div class="pure-g">
+    <div class="pure-g" style="display: block;">
         <form action="/photos" method="POST" class="pure-form">
-            <input type="text" name="photo_name" class="pure-u-1" placeholder="Search for a word" />
+            <input type="text" name="photo_name" class="pure-u-1-2" placeholder="Search for a word..." />
             <h3>or</h3>
         </form>
-        <form action="/photos/random">
+        <form id="random" style="padding: 0;" action="/photos/random" class="pure-form">
             <button type="submit" style="font-weight: bolder;" class="pure-button">Get Random Photo</button>
         </form>
 
