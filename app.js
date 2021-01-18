@@ -45,10 +45,27 @@ app.post("/photos", function(req,res){
 			var PictureObject = [
 
 				{
+					username: data.results[0].user.username,
 					created_at: data.results[0].created_at,
 					image: data.results[0].urls.raw,
 					description: data.results[0].alt_description,
 					bio: data.results[0].user.bio 
+					 
+				},
+				{
+					username: data.results[1].user.username,
+					created_at: data.results[1].created_at,
+					image: data.results[1].urls.raw,
+					description: data.results[1].alt_description,
+					bio: data.results[1].user.bio 
+					 
+				},
+				{
+					username: data.results[2].user.username,
+					created_at: data.results[2].created_at,
+					image: data.results[2].urls.raw,
+					description: data.results[2].alt_description,
+					bio: data.results[2].user.bio 
 					 
 				}
 			];
@@ -65,7 +82,7 @@ app.post("/photos", function(req,res){
 
 
 app.get("/photos/random", function(req,res){
-	var TOKEN = "https://api.unsplash.com/photos/random?client_id=eldAH6lEOD3YrspfMW8Lo-6lhy5QUB6stBxTP7SJxcg";
+	var TOKEN = URL+ "/photos/random?&" + CLIENT_ID;
 	request(TOKEN, function(error, response, body){
 		if(!error && response.statusCode == 200) {
 
@@ -81,7 +98,7 @@ app.get("/photos/random", function(req,res){
 					
 				}
 			];
-			res.render("show", {picture: PictureObject});
+			res.render("random", {picture: PictureObject});
 		}
 
 	});

@@ -2,17 +2,18 @@
 
 
   
-   <h1 style="color: green;">
+  
         <ul>
             <% picture.forEach(function(dat) { %>
                 <li><%= dat.created_at %></li>
                 <li><%= dat.image%></li>
                 <li><%= dat.description%></li>
                 <li><%= dat.bio%></li>
-                <h3>you have <%= dat.likes%></h3>
+                <img src="<%= dat.image %>" >
             <% }); %>
         </ul>
-    </h1> 
+    
 
+    
 
 <%- include("partials/footer") %>
