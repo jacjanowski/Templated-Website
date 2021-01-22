@@ -3,8 +3,7 @@ var express    = require("express"),
 	request	   = require("request");
 
 
-var searchResults = [];
-var TOKEN = "https://api.unsplash.com/search/photos?page=1&query=office&count=1&client_id=eldAH6lEOD3YrspfMW8Lo-6lhy5QUB6stBxTP7SJxcg";
+
 var PORT = process.env.PORT || 3000;
 var app = express();
 
@@ -27,21 +26,15 @@ app.get("/", function(req,res){
 	res.render("header")
 });
 
-// app.post("/photos",function(req,res){
-// 	var photo_name = req.body.photo_name;
-
-// 	console.log(req.body.photo_name);
-// 	searchResults.push(photo_name);
-	
-// 	res.render("show", {photo_name: photo_name})
-// });
 
 app.post("/photos", function(req,res){
+
 	var photo_name = req.body.photo_name;
 	var TOKEN = URL + "/search/photos?query=" + photo_name + CLIENT_ID;
 	request(TOKEN, function(error, response, body){
 		if(!error && response.statusCode == 200) {
 			var data = JSON.parse(body);
+			
 			var PictureObject = [
 
 				{
@@ -70,7 +63,6 @@ app.post("/photos", function(req,res){
 				}
 			];
 
-			console.log(PictureObject)
 			res.render("show", {picture: PictureObject});
 			
 		}

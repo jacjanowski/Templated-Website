@@ -1,17 +1,24 @@
 <%- include("partials/headerHTML") %>
 
 
-  
-  
-        <ul>
-            <% picture.forEach(function(dat) { %>
-                <li><%= dat.created_at %></li>
-                <li><%= dat.image%></li>
-                <li><%= dat.description%></li>
-                <li><%= dat.bio%></li>
-                <img src="<%= dat.image %>" >
-            <% }); %>
-        </ul>
+<div class="pure-g">
+<% picture.forEach(function(photo){ %>
+    <div class="photo-box pure-u-1">
+        <a href="<%= photo.image %>">
+            <img src="<%=photo.image %>">
+        </a>
+        
+     
+        <aside class="photo-box-caption">
+                <span>
+                    by <strong><%= photo.username %></strong>
+                </span>
+                <p><%= photo.description %></p>
+        </aside>
+    </div>
+    
+    <% }); %>
+</div>
     
 
     
